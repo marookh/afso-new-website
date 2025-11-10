@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  
+  /* AFSO Brand Colors */
+  --afso-turquoise: #135f5c;
+  --afso-light-blue: #5ACBED;
+  --afso-dark: #000000;
+  --afso-white: #FFFFFF;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  
+  /* AFSO Brand Colors */
+  --color-afso-turquoise: var(--afso-turquoise);
+  --color-afso-light-blue: var(--afso-light-blue);
+  --color-afso-dark: var(--afso-dark);
+  --color-afso-white: var(--afso-white);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Hide Turbopack dev indicator button and all Next.js dev overlays */
+[data-nextjs-toast],
+[data-nextjs-toast-root],
+#__next-build-watcher,
+#__next-dev-overlay,
+.__next-dev-overlay,
+[data-nextjs-dialog],
+[data-nextjs-dialog-overlay],
+button[aria-label*="Next.js"],
+button[title*="Next.js"],
+button[title*="Turbopack"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Hide the "N" button specifically */
+button[aria-label*="Next.js"],
+button[title*="Next.js"],
+button[title*="Turbopack"],
+.__next-dev-overlay button {
+  display: none !important;
+}
+
+/* AFSO brand color hover effects */
+.afso-link {
+  color: #135f5c;
+  transition: color 0.2s ease;
+}
+
+.afso-link:hover {
+  color: #5ACBED;
+}
