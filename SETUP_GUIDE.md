@@ -293,4 +293,3 @@ For questions or issues:
 - Check the main README.md
 - Review Firebase/Next.js documentation
 - Contact the development team
-
