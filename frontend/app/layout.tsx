@@ -14,6 +14,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "AFSO - Afghan Female Student Outreach",
   description: "AFSO is a collective of volunteer professors from around the world, teaching classes and building pathways forward for university women in Afghanistan.",
+  icons: {
+    icon: "/AFSO-Logo-16-.png",
+    shortcut: "/AFSO-Logo-16-.png",
+    apple: "/AFSO-Logo-16-.png",
+  },
 };
 
 export default function RootLayout({
