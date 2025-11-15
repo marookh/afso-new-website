@@ -1,0 +1,21 @@
+[build]
+  base = "frontend"  # Only if deploying from repo root
+  command = "npm run build"
+  publish = ".next"
+  timeout = 900  # 15 minutes
+
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_FLAGS = "--legacy-peer-deps"  # If you have dependency conflicts
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Optional: Cache node_modules for faster builds
+[[plugins]]
+  package = "@netlify/plugin-cache"
+  [plugins.inputs]
+    paths = [
+      "node_modules",
+      ".next/cache"
+    ]
