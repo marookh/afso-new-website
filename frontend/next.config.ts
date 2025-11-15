@@ -15,9 +15,7 @@ const nextConfig: NextConfig = {
     ],
   },
   // Completely disable dev indicators (the Turbopack button)
-  devIndicators: {
-    buildActivity: false,
-  },
+  devIndicators: false,
   // Enable static export if needed for Firebase Hosting
   // output: 'export',
 };
