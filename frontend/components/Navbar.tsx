@@ -106,10 +106,11 @@ export default function Navbar() {
             <Image 
               src="/AFSO-Logo-16-.png" 
               alt="AFSO Logo" 
-              width={50} 
-              height={50}
+              width={48} 
+              height={48}
               className="h-12 w-12 object-contain"
               priority
+              unoptimized
             />
             <span className="text-2xl font-bold" style={{ color: '#135f5c' }}>AFSO</span>
           </Link>
