@@ -1,21 +1,11 @@
-// CMS Integration Layer - Ready for Sanity or Contentful
-// This file provides a unified interface for CMS operations
+// CMS Integration Layer - Contentful
+import { createClient, Entry } from 'contentful'
 
-// Sanity Client Setup (uncomment and configure when ready)
-// import { createClient } from '@sanity/client'
-// import imageUrlBuilder from '@sanity/image-url'
-
-// export const sanityClient = createClient({
-//   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
-//   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
-//   useCdn: true,
-//   apiVersion: '2024-01-01',
-// })
-
-// const builder = imageUrlBuilder(sanityClient)
-// export function urlFor(source: any) {
-//   return builder.image(source)
-// }
+// Contentful Client Setup
+const contentfulClient = createClient({
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID || '',
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN || '',
+})
 
 // Types for CMS content
 export interface Announcement {
@@ -47,52 +37,105 @@ export interface Program {
   slug: string
 }
 
-// Mock data for development (replace with CMS calls later)
+// Helper function to get image URL from Contentful
+function getImageUrl(imageField: any): string | undefined {
+  if (imageField?.fields?.file?.url) {
+    return `https:${imageField.fields.file.url}`
+  }
+  return undefined
+}
+
+// Fetch announcements from Contentful
 export async function getAnnouncements(): Promise<Announcement[]> {
-  // TODO: Replace with actual CMS call
-  // return sanityClient.fetch(`*[_type == "announcement"] | order(publishedAt desc)`)
-  
-  return [
-    {
-      id: '1',
-      title: 'Welcome to AFSO',
-      content: 'We are excited to announce our new website and expanded programs.',
-      excerpt: 'We are excited to announce our new website...',
-      publishedAt: new Date().toISOString(),
-      slug: 'welcome-to-afso',
-    },
-  ]
+  try {
+    const response = await contentfulClient.getEntries({
+      content_type: 'announcement',
+      order: ['-fields.publishedAt'],
+    })
+
+    return response.items.map((item: Entry<any>) => ({
+      id: item.sys.id,
+      title: String(item.fields.title || ''),
+      content: String(item.fields.content || ''),
+      excerpt: item.fields.excerpt ? String(item.fields.excerpt) : undefined,
+      publishedAt: item.fields.publishedAt ? String(item.fields.publishedAt) : new Date().toISOString(),
+      image: getImageUrl(item.fields.image),
+      slug: String(item.fields.slug || ''),
+    }))
+  } catch (error) {
+    console.error('Error fetching announcements:', error)
+    return []
+  }
 }
 
+// Fetch classes from Contentful
 export async function getClasses(): Promise<Class[]> {
-  // TODO: Replace with actual CMS call
-  return [
-    {
-      id: '1',
-      title: 'Community English Class',
-      description: 'Free English language classes for community members.',
-      schedule: 'Every Monday and Wednesday, 6-8 PM',
-      instructor: 'TBA',
-      slug: 'community-english-class',
-    },
-  ]
+  try {
+    const response = await contentfulClient.getEntries({
+      content_type: 'class',
+    })
+
+    return response.items.map((item: Entry<any>) => ({
+      id: item.sys.id,
+      title: String(item.fields.title || ''),
+      description: String(item.fields.description || ''),
+      schedule: item.fields.schedule ? String(item.fields.schedule) : undefined,
+      instructor: item.fields.instructor ? String(item.fields.instructor) : undefined,
+      image: getImageUrl(item.fields.image),
+      slug: String(item.fields.slug || ''),
+    }))
+  } catch (error) {
+    console.error('Error fetching classes:', error)
+    return []
+  }
 }
 
+// Fetch programs from Contentful
 export async function getPrograms(): Promise<Program[]> {
-  // TODO: Replace with actual CMS call
-  return [
-    {
-      id: '1',
-      title: 'Community Outreach',
-      description: 'Building stronger communities through outreach programs.',
-      slug: 'community-outreach',
-    },
-  ]
+  try {
+    const response = await contentfulClient.getEntries({
+      content_type: 'program',
+    })
+
+    return response.items.map((item: Entry<any>) => ({
+      id: item.sys.id,
+      title: String(item.fields.title || ''),
+      description: String(item.fields.description || ''),
+      content: item.fields.content ? String(item.fields.content) : undefined,
+      image: getImageUrl(item.fields.image),
+      slug: String(item.fields.slug || ''),
+    }))
+  } catch (error) {
+    console.error('Error fetching programs:', error)
+    return []
+  }
 }
 
+// Fetch single announcement by slug
 export async function getAnnouncementBySlug(slug: string): Promise<Announcement | null> {
-  // TODO: Replace with actual CMS call
-  const announcements = await getAnnouncements()
-  return announcements.find(a => a.slug === slug) || null
-}
+  try {
+    const response = await contentfulClient.getEntries({
+      content_type: 'announcement',
+      'fields.slug': slug,
+      limit: 1,
+    })
 
+    if (response.items.length === 0) {
+      return null
+    }
+
+    const item = response.items[0] as Entry<any>
+    return {
+      id: item.sys.id,
+      title: String(item.fields.title || ''),
+      content: String(item.fields.content || ''),
+      excerpt: item.fields.excerpt ? String(item.fields.excerpt) : undefined,
+      publishedAt: item.fields.publishedAt ? String(item.fields.publishedAt) : new Date().toISOString(),
+      image: getImageUrl(item.fields.image),
+      slug: String(item.fields.slug || ''),
+    }
+  } catch (error) {
+    console.error('Error fetching announcement:', error)
+    return null
+  }
+}
