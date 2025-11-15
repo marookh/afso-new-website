@@ -10,12 +10,3 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
-
-# Optional: Cache node_modules for faster builds
-[[plugins]]
-  package = "@netlify/plugin-cache"
-  [plugins.inputs]
-    paths = [
-      "node_modules",
-      ".next/cache"
-    ]
