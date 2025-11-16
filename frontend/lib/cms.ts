@@ -1,11 +1,22 @@
 // CMS Integration Layer - Contentful
 import { createClient, Entry } from 'contentful'
 
-// Contentful Client Setup
-const contentfulClient = createClient({
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID || '',
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN || '',
-})
+// Contentful Client Setup - only create if credentials are available
+let contentfulClient: ReturnType<typeof createClient> | null = null
+
+const spaceId = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID
+const accessToken = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
+
+if (spaceId && accessToken) {
+  try {
+    contentfulClient = createClient({
+      space: spaceId,
+      accessToken: accessToken,
+    })
+  } catch (error) {
+    console.warn('Failed to initialize Contentful client:', error)
+  }
+}
 
 // Types for CMS content
 export interface Announcement {
@@ -37,6 +48,32 @@ export interface Program {
   slug: string
 }
 
+export interface Professor {
+  id: string
+  name: string
+  photo?: string
+  role: string
+  bio: string
+  profileUrl?: string
+}
+
+export interface Metric {
+  id: string
+  name: string
+  value: number
+  suffix?: string
+  icon?: string
+}
+
+export interface Story {
+  id: string
+  studentName: string
+  quote: string
+  photo?: string
+  program?: string
+  publishedAt: string
+}
+
 // Helper function to get image URL from Contentful
 function getImageUrl(imageField: any): string | undefined {
   if (imageField?.fields?.file?.url) {
@@ -47,6 +84,11 @@ function getImageUrl(imageField: any): string | undefined {
 
 // Fetch announcements from Contentful
 export async function getAnnouncements(): Promise<Announcement[]> {
+  if (!contentfulClient) {
+    // Return empty array if Contentful is not configured
+    return []
+  }
+
   try {
     const response = await contentfulClient.getEntries({
       content_type: 'announcement',
@@ -70,6 +112,11 @@ export async function getAnnouncements(): Promise<Announcement[]> {
 
 // Fetch classes from Contentful
 export async function getClasses(): Promise<Class[]> {
+  if (!contentfulClient) {
+    // Return empty array if Contentful is not configured
+    return []
+  }
+
   try {
     const response = await contentfulClient.getEntries({
       content_type: 'class',
@@ -92,6 +139,11 @@ export async function getClasses(): Promise<Class[]> {
 
 // Fetch programs from Contentful
 export async function getPrograms(): Promise<Program[]> {
+  if (!contentfulClient) {
+    // Return empty array if Contentful is not configured
+    return []
+  }
+
   try {
     const response = await contentfulClient.getEntries({
       content_type: 'program',
@@ -113,6 +165,11 @@ export async function getPrograms(): Promise<Program[]> {
 
 // Fetch single announcement by slug
 export async function getAnnouncementBySlug(slug: string): Promise<Announcement | null> {
+  if (!contentfulClient) {
+    // Return null if Contentful is not configured
+    return null
+  }
+
   try {
     const response = await contentfulClient.getEntries({
       content_type: 'announcement',

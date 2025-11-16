@@ -1,3 +1,5 @@
+import CountingStats from '@/components/CountingStats'
+
 export default function AboutPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -82,27 +84,18 @@ export default function AboutPage() {
       </section>
 
       {/* Impact Stats */}
-      <section className="text-white rounded-lg p-8 md:p-12" style={{ backgroundColor: '#000000' }}>
-        <h2 className="text-3xl font-bold text-center mb-12 text-white">Our Impact</h2>
-        <div className="grid md:grid-cols-4 gap-8 text-center">
-          <div>
-            <div className="text-4xl font-bold mb-2" style={{ color: '#5ACBED' }}>800+</div>
-            <div className="text-gray-300">Students Enrolled</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold mb-2" style={{ color: '#5ACBED' }}>50+</div>
-            <div className="text-gray-300">Classes</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold mb-2" style={{ color: '#5ACBED' }}>100+</div>
-            <div className="text-gray-300">Volunteers</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold mb-2" style={{ color: '#5ACBED' }}>10+</div>
-            <div className="text-gray-300">Communities</div>
-          </div>
-        </div>
-      </section>
+      <div className="bg-black py-16 rounded-lg">
+        <CountingStats
+          sectionTitle="Our Impact"
+          className=""
+          stats={[
+            { value: 800, suffix: '+', label: 'Students Enrolled' },
+            { value: 50, suffix: '+', label: 'Classes' },
+            { value: 100, suffix: '+', label: 'Volunteers' },
+            { value: 10, suffix: '+', label: 'Communities' },
+          ]}
+        />
+      </div>
     </div>
   )
 }

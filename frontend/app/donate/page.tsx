@@ -22,7 +22,7 @@ export default function DonatePage() {
       </div>
 
       {/* Why Donate Section */}
-      <section className="mb-12 rounded-lg p-8" style={{ backgroundColor: '#135f5c', color: '#FFFFFF' }}>
+      <section className="mb-12 rounded-lg p-8 bg-[#3ba5c1] text-white">
         <h2 className="text-2xl font-semibold mb-4 text-white">Why Your Support Matters</h2>
         <ul className="space-y-3 text-white">
           <li className="flex items-start">
@@ -50,24 +50,34 @@ export default function DonatePage() {
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-6 text-gray-900">Ways to Give</h2>
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-white border-2 border-gray-200 rounded-lg p-6 transition-colors hover:border-[#135f5c]">
+          <div className="bg-white border-2 border-gray-200 rounded-lg p-6 transition-colors hover:border-[#3ba5c1]">
             <h3 className="text-xl font-semibold mb-3 text-gray-900">One-Time Donation</h3>
             <p className="text-gray-600 mb-4">
               Make a single donation to support our programs and initiatives.
             </p>
-            <button className="w-full text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-colors" style={{ backgroundColor: '#135f5c' }}>
+            <a
+              href="https://www.paypal.com/donate"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-colors bg-[#3ba5c1] hover:bg-[#2d8fa8]"
+            >
               Donate Now
-            </button>
+            </a>
           </div>
 
-          <div className="bg-white border-2 border-gray-200 rounded-lg p-6 transition-colors hover:border-[#135f5c]">
+          <div className="bg-white border-2 border-gray-200 rounded-lg p-6 transition-colors hover:border-[#3ba5c1]">
             <h3 className="text-xl font-semibold mb-3 text-gray-900">Monthly Giving</h3>
             <p className="text-gray-600 mb-4">
               Become a monthly donor and provide consistent support for our ongoing programs.
             </p>
-            <button className="w-full text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-colors" style={{ backgroundColor: '#135f5c' }}>
+            <a
+              href="https://www.paypal.com/donate"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-colors bg-[#3ba5c1] hover:bg-[#2d8fa8]"
+            >
               Set Up Monthly Donation
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -113,7 +123,7 @@ export default function DonatePage() {
       </section>
 
       {/* Contact for Other Ways to Give */}
-      <section className="text-center bg-blue-50 rounded-lg p-8">
+      <section className="text-center bg-gray-50 rounded-lg p-8">
         <h2 className="text-2xl font-semibold mb-4 text-gray-900">Other Ways to Support</h2>
         <p className="text-gray-700 mb-6">
           Interested in corporate sponsorship, in-kind donations, or planned giving? We'd love to discuss
@@ -121,7 +131,7 @@ export default function DonatePage() {
         </p>
         <Link
           href="/contact"
-          className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+          className="inline-block bg-[#3ba5c1] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#2d8fa8] transition-colors"
         >
           Contact Us
         </Link>
