@@ -4,3 +4,5 @@
 public/assets/**/*.mp4 filter=lfs diff=lfs merge=lfs -text
 public/assets/**/*.PNG filter=lfs diff=lfs merge=lfs -text
 public/assets/** filter=lfs diff=lfs merge=lfs -text
+# Exclude logo from LFS - it's small and needed for favicon
+public/AFSO-Logo-16-.png !filter !diff !merge -text
