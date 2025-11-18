@@ -108,11 +108,7 @@ export default function Hero({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#3ba5c1] mb-6 leading-tight drop-shadow-lg">
-              Building Pathways Forward for University Women
-              <br />
-              <span className="text-4xl md:text-5xl lg:text-6xl">
-                in Afghanistan
-              </span>
+              {headline}
             </h1>
             {subheadline && (
               <p className="text-lg md:text-xl text-white mb-8 leading-relaxed max-w-3xl mx-auto drop-shadow-md">

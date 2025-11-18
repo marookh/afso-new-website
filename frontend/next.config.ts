@@ -19,8 +19,6 @@ const nextConfig: NextConfig = {
   },
   // Enable compression
   compress: true,
-  // Optimize production builds
-  swcMinify: true,
   // Completely disable dev indicators (the Turbopack button)
   devIndicators: false,
   // Enable static export if needed for Firebase Hosting
