@@ -32,7 +32,7 @@ export default function MissionPage() {
                     alt="AFSO Mission - Students Learning Together"
                     fill
                     className="object-cover"
-                    unoptimized
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -45,11 +45,9 @@ export default function MissionPage() {
                 We aim to educate university women at all levels who seek an academic bridge between their current situation and eventual enrollment in a degree-granting institution online or outside Afghanistan.
               </p>
 
-              <div className="bg-gradient-to-r from-[#3ba5c1]/10 to-transparent p-8 rounded-lg my-12 border-l-4 border-[#3ba5c1]">
-                <p className="text-lg md:text-xl leading-relaxed" style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}>
-                  Our long-term goal is to help educate the future leaders of Afghanistan, who will have the education and experience they need to help restore their country, and especially its women, if and when the regime changes.
-                </p>
-              </div>
+              <p className="text-lg md:text-xl leading-relaxed">
+                Our long-term goal is to help educate the future leaders of Afghanistan, who will have the education and experience they need to help restore their country, and especially its women, if and when the regime changes.
+              </p>
 
               <p className="text-lg md:text-xl leading-relaxed">
                 We are committed to recruiting and educating women from both dominant and underrepresented communities within Afghanistan.

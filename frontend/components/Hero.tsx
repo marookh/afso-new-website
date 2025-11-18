@@ -74,10 +74,17 @@ export default function Hero({
             loop
             muted
             playsInline
-            preload="auto"
+            preload="metadata"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '100%', minWidth: '100%' }}
             key={video}
+            onLoadedData={(e) => {
+              // Ensure video plays smoothly
+              const video = e.currentTarget
+              if (video.readyState >= 2) {
+                video.play().catch(() => {})
+              }
+            }}
           >
             <source src={video} type="video/mp4" />
             {image && (

@@ -18,7 +18,7 @@ export default function StoryPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <article className="prose prose-lg max-w-none">
             <div className="text-gray-900 leading-relaxed space-y-6" style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}>
-                <p className="text-xl md:text-2xl leading-relaxed text-gray-800 font-light italic border-l-4 border-[#3ba5c1] pl-6 mb-8" style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}>
+              <p className="text-lg md:text-xl leading-relaxed">
                 In December 2022, 16 months after the Taliban seized power in Afghanistan, an emergency arose.
               </p>
 
@@ -33,7 +33,7 @@ export default function StoryPage() {
                     alt="AFSO Students Learning"
                     fill
                     className="object-cover rounded-lg"
-                    unoptimized
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -46,11 +46,9 @@ export default function StoryPage() {
                 With the help of an anonymous donor, that fall AFSO was able to supply internet connection via mobile phone data to 125 students and hire an Executive Director. The news spread by word of mouth to students and professors alike. By Winter 2024, we had 150 students across Afghanistan and 24 professors across North America. By that summer, we had grown to 200 students, and our faculty was volunteering from institutions on four continents. When we reached 500 students and 50 instructors, we hired an Executive Director, a Student Affairs Coordinator, and an Academic Administrator—still our only paid staff.
               </p>
 
-              <div className="bg-gray-50 p-8 rounded-lg my-12 border-l-4 border-[#3ba5c1]">
-                <p className="text-xl md:text-2xl text-gray-900 leading-relaxed italic" style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}>
-                  Today, our student body stands at 800 and our faculty at 185, plus 175 course assistants from universities in Europe, America, and Asia. Of our original students, almost 50% are still with AFSO. Others have gone on to enroll with scholarships at universities in South Asia, the Middle East, Europe, and North America. Through our partnerships, we are now offering a clear pathway to the future for Afghan university women.
-                </p>
-              </div>
+              <p className="text-lg md:text-xl leading-relaxed">
+                Today, our student body stands at 800 and our faculty at 185, plus 175 course assistants from universities in Europe, America, and Asia. Of our original students, almost 50% are still with AFSO. Others have gone on to enroll with scholarships at universities in South Asia, the Middle East, Europe, and North America. Through our partnerships, we are now offering a clear pathway to the future for Afghan university women.
+              </p>
 
               <p className="text-lg md:text-xl leading-relaxed">
                 Shortly after AFSO began, one of our amazing students found herself on the verge of despair. <span className="italic text-[#3ba5c1] text-xl" style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}>"Please, professor,"</span> she wrote, <span className="italic text-[#3ba5c1] text-xl" style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}>"do not alone me."</span> That plea has been our guiding light: to stay with our students through these difficult times, to offer them whatever we can provide, as educators, not to impose our goals on them, but to respond to their expressed hopes and needs. As the world presents challenges, we continue to grow and adapt. And with your help, we will see these indomitable young women become, one day, the new face of Afghanistan.
