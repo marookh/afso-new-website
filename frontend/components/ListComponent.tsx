@@ -32,6 +32,7 @@ export default function ListComponent({
             key={item.id}
             href={item.href}
             className="block group"
+            prefetch={true}
           >
             <div className="grid md:grid-cols-3 gap-6 bg-white hover:shadow-md transition-shadow p-6">
               {item.image && (
@@ -41,7 +42,7 @@ export default function ListComponent({
                     alt={item.title}
                     fill
                     className="object-cover"
-                    unoptimized
+                    loading="lazy"
                   />
                 </div>
               )}

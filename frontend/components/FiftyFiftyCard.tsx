@@ -27,7 +27,7 @@ export default function FiftyFiftyCard({
         alt={imageAlt}
         fill
         className="object-cover"
-        unoptimized
+        loading="lazy"
       />
     </div>
   )
@@ -59,7 +59,7 @@ export default function FiftyFiftyCard({
 
   if (href) {
     return (
-      <Link href={href} className="block bg-white hover:shadow-lg transition-shadow">
+      <Link href={href} className="block bg-white hover:shadow-lg transition-shadow" prefetch={true}>
         {cardContent}
       </Link>
     )

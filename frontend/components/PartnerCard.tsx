@@ -22,7 +22,7 @@ export default function PartnerCard({
           width={200}
           height={120}
           className="object-contain max-w-full max-h-full"
-          unoptimized
+          loading="lazy"
         />
       </div>
       <div className="p-6 flex-grow flex flex-col">

@@ -23,7 +23,7 @@ export default function QuoteCard({
           alt={imageAlt}
           fill
           className="object-cover"
-          unoptimized
+          loading="lazy"
         />
       </div>
       <div className="p-8 md:p-12 flex flex-col justify-center">

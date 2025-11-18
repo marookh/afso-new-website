@@ -30,7 +30,7 @@ export default function Card({
             alt={imageAlt || title}
             fill
             className="object-cover"
-            unoptimized
+            loading="lazy"
           />
         </div>
       )}
@@ -46,7 +46,7 @@ export default function Card({
 
   if (href) {
     return (
-      <Link href={href} className="block group">
+      <Link href={href} className="block group" prefetch={true}>
         {content}
       </Link>
     )

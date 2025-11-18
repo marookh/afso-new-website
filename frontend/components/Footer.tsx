@@ -18,22 +18,22 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4 text-[#3ba5c1]">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/our-story" className="hover:text-[#5acbed] transition-colors">
+                <Link href="/our-story" className="hover:text-[#5acbed] transition-colors" prefetch={true}>
                   Our Story
                 </Link>
               </li>
               <li>
-                <Link href="/academics/programs" className="hover:text-[#5acbed] transition-colors">
+                <Link href="/academics/programs" className="hover:text-[#5acbed] transition-colors" prefetch={true}>
                   Programs
                 </Link>
               </li>
               <li>
-                <Link href="/academics/classes" className="hover:text-[#5acbed] transition-colors">
+                <Link href="/academics/classes" className="hover:text-[#5acbed] transition-colors" prefetch={true}>
                   Classes
                 </Link>
               </li>
               <li>
-                <Link href="/news" className="hover:text-[#5acbed] transition-colors">
+                <Link href="/news" className="hover:text-[#5acbed] transition-colors" prefetch={true}>
                   News
                 </Link>
               </li>
@@ -45,17 +45,17 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4 text-[#3ba5c1]">Get Involved</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/donate" className="hover:text-[#5acbed] transition-colors">
+                <Link href="/donate" className="hover:text-[#5acbed] transition-colors" prefetch={true}>
                   Donate
                 </Link>
               </li>
               <li>
-                <Link href="/get-involved" className="hover:text-[#5acbed] transition-colors">
+                <Link href="/get-involved" className="hover:text-[#5acbed] transition-colors" prefetch={true}>
                   Volunteer
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#5acbed] transition-colors">
+                <Link href="/contact" className="hover:text-[#5acbed] transition-colors" prefetch={true}>
                   Contact Us
                 </Link>
               </li>
